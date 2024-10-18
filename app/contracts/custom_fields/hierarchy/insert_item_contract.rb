@@ -31,25 +31,21 @@
 module CustomFields
   module Hierarchy
     class InsertItemContract < Dry::Validation::Contract
+      config.messages.backend = :i18n
+
       params do
-        required(:parent).filled
+        required(:parent).filled(type?: CustomField::Hierarchy::Item)
         required(:label).filled(:string)
         optional(:short).filled(:string)
       end
 
       rule(:parent) do
-        if value.is_a?(CustomField::Hierarchy::Item)
-          unless value.persisted?
-            key.failure("Parent must exist")
-          end
-        else
-          key.failure("Parent must be of type 'Item'")
-        end
+        key.failure("must exist") unless value.persisted?
       end
 
       rule(:label) do
         if CustomField::Hierarchy::Item.exists?(parent_id: values[:parent], label: value)
-          key.failure("Label must be unique within the same hierarchy level")
+          key.failure(:not_unique)
         end
       end
     end
