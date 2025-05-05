@@ -28,22 +28,28 @@
 # See COPYRIGHT and LICENSE files for more details.
 #++
 
-module API::V3::StorageFiles
-  class StorageUploadLinkRepresenter < ::API::Decorators::Single
-    link :self do
-      { href: "#{::API::V3::URN_PREFIX}storages:upload_link:no_link_provided" }
-    end
+module Types
+  module Patterns
+    AttributeToken = Data.define(:key, :label, :resolve_fn) do
+      def label_with_context
+        attribute_context = I18n.t("types.edit.subject_configuration.token.context.#{context}")
+        I18n.t("types.edit.subject_configuration.token.label_with_context", attribute_context:, attribute_label: label)
+      end
 
-    link :destination do
-      {
-        href: represented.destination,
-        method: represented.method,
-        title: "Upload File"
-      }
-    end
+      def call(*)
+        resolve_fn.call(*)
+      end
 
-    def _type
-      Storages::UploadLink.name.split("::").last
+      def context
+        case key.to_s
+        when /^project_/
+          :project
+        when /^parent_/
+          :parent
+        else
+          :work_package
+        end
+      end
     end
   end
 end
