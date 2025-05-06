@@ -357,7 +357,7 @@ cs:
       header_status: Project status
       header_relations: Project relations
       button_update_details: Update details
-      button_update_status: Update status
+      button_update_status_description: Update status description
       button_update_parent_project: Update parent project
       public_warning: >
         This project is public. Anyone who has access to this instance will be able to view and interact with this project depending on their role and associated permissions. Sub-projects are not affected and have their own settings.
@@ -419,12 +419,14 @@ cs:
         no_results_title_text: Neexistuje žádné další diskové místo využívané tímto projektem.
       work_package_priorities:
         new_label: "nová priorita"
+    status:
+      button_edit: Edit project status
   project_phase:
-    working_days_count:
-      one: "Doba trvání: %{count} pracovní den"
-      few: "Doba trvání: %{count} pracovní dny"
-      many: "Doba trvání: %{count} pracovní dny"
-      other: "Doba trvání: %{count} pracovní dny"
+    duration:
+      one: "Duration: %{count} working day"
+      few: "Duration: %{count} working days"
+      many: "Duration: %{count} working days"
+      other: "Duration: %{count} working days"
   lists:
     create:
       success: "Upravený seznam byl uložen jako nový seznam."
@@ -656,8 +658,9 @@ cs:
             project: "Project"
         pattern:
           label: "Vzor předmětu"
-          caption: "Add text or type / to search for an attribute. You can add spaces to separate them."
+          caption_with_supported_attributes_link: Create patterns by adding text, or type "/" to search for %{link}.
           insert_as_text: "No attributes found. Add as text: \"%{word}\""
+          supported_attributes_link: "supported attributes"
       export_configuration:
         tab: "Vytvořit PDF"
         intro: "Select which templates from those that are available you would like to enable for this type. The template determines the design and attributes visible in the exported PDF of a work package using this type. The first template on the list is selected by default."
@@ -1703,6 +1706,8 @@ cs:
     priority: "Priorita"
     project: "Projekt"
     project_ids: "ID Projektu"
+    project_phase: "Project phase"
+    project_phase_definition: "Project phase"
     reason: "Důvod"
     responsible: "Odpovědný"
     required: "Požadováno"
@@ -2738,6 +2743,7 @@ cs:
   label_gantt_chart_plural: "Ganttovy diagramy"
   label_general: "Obecné"
   label_generate_key: "Generovat klíč"
+  label_global_roles: "Global roles"
   label_git_path: "Cesta ke složce .git"
   label_greater_or_equal: ">="
   label_group_by: "Seskupit podle"
@@ -3408,6 +3414,7 @@ cs:
   notice_successful_cancel: "Úspěšné zrušení."
   notice_successful_update: "Úspěšná aktualizace."
   notice_unsuccessful_update: "Update failed."
+  notice_unsuccessful_update_with_reason: "Update failed: %{reason}"
   notice_successful_update_custom_fields_added_to_project: |
     Úspěšná aktualizace. Vlastní pole aktivovaných typů jsou automaticky aktivována
     na formuláři pracovního balíčku. <a href="%{url}" target="_blank">Viz více</a>.
