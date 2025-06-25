@@ -1222,7 +1222,7 @@ id:
           attributes:
             content_type:
               blank: "Jenis konten file tidak boleh kosong."
-              not_whitelisted: "File ditolak oleh filter otomatis.  '%{value}' tidak masuk daftar putih untuk unggahan."
+              not_allowlisted: "The file was rejected by an automatic filter. '%{value}' is not allowed for upload."
               format: "%{message}"
         capability:
           context:
@@ -3397,7 +3397,7 @@ id:
   #Default format for numbers
   number:
     format:
-      delimiter: ""
+      delimiter: ","
       precision: 3
       separator: "."
     human:

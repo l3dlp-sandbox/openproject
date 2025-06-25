@@ -1233,7 +1233,7 @@
           attributes:
             content_type:
               blank: "Filens innholdstype kan ikke være tom."
-              not_whitelisted: "Filen ble avvist av et automatisk filter. '%{value}' er ikke hvitelistet for opplasting."
+              not_allowlisted: "The file was rejected by an automatic filter. '%{value}' is not allowed for upload."
               format: "%{message}"
         capability:
           context:
@@ -3443,7 +3443,7 @@
   #Default format for numbers
   number:
     format:
-      delimiter: ""
+      delimiter: ","
       precision: 3
       separator: ","
     human:
